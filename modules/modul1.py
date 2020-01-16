@@ -15,11 +15,12 @@ class MyClass1:
         time.sleep(2)
         logging.info("Thread %s: finishing", name)
 
+
     def run_thread(self):
         format = "%(asctime)s: %(message)s"
         logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
         logging.info("Main    : before creating thread")
-        x = threading.Thread(target=self.thread_function, args=(1, "Dario",))
+        x = threading.Thread(target=self.thread_function, args=(1, "From Dario",))
         logging.info("Main    : before running thread")
         x.start()
         logging.info("Main    : wait for the thread to finish")
