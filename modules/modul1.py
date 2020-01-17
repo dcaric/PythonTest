@@ -1,10 +1,9 @@
 import logging
-import threading
+from threading import Thread
 import time
-from modules.MyClass3 import MyClass3
 
 
-class MyClass1(threading.Thread):
+class MyClass1:
 
     def my_function1(self, message):
         print("** myFunction1 **")
@@ -20,7 +19,7 @@ class MyClass1(threading.Thread):
         format = "%(asctime)s: %(message)s"
         logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
         logging.info("Main    : before creating thread")
-        x = threading.Thread(target=self.thread_function, args=(1, "From Dario",))
+        x = Thread(target=self.thread_function, args=(1, "From Dario",))
         logging.info("Main    : before running thread")
         x.start()
         logging.info("Main    : wait for the thread to finish")
