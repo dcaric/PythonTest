@@ -1,11 +1,12 @@
 import logging
 import threading
 import time
+from modules.MyClass3 import MyClass3
 
 
-class MyClass1:
+class MyClass1(threading.Thread):
 
-    def myFunction1(self, message):
+    def my_function1(self, message):
         print("** myFunction1 **")
         msg = "This is from MyClass1 message = " + message
         return msg
@@ -14,7 +15,6 @@ class MyClass1:
         logging.info("Thread %s: starting  FROM: %s", name, name2)
         time.sleep(2)
         logging.info("Thread %s: finishing", name)
-
 
     def run_thread(self):
         format = "%(asctime)s: %(message)s"
@@ -26,3 +26,5 @@ class MyClass1:
         logging.info("Main    : wait for the thread to finish")
         x.join()
         logging.info("Main    : all done")
+
+
